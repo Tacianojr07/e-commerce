@@ -5,9 +5,7 @@ export const StyledMain = styled.main`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 1rem 8rem;
-  margin: 1rem 4rem;
-
+  padding: 1rem 7.5rem;
   h1 {
     margin-bottom: 1rem;
   }
