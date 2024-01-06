@@ -14,8 +14,30 @@ export const StyledMain = styled.main`
 
   img {
     width: 100%;
-    max-width: 345px;
+    max-width: 375px;
     height: 300px;
     object-fit: cover;
+  }
+`;
+
+export const StyledSection = styled.section`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
+export const StyledItem = styled.div`
+  width: 100%;
+  margin-bottom: 1rem;
+`;
+export const StyledRight = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  button {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-right: 35px;
+    cursor: pointer;
   }
 `;
