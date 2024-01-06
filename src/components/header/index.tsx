@@ -17,7 +17,11 @@ function Header() {
 
       <div className="circle">
         <StyledAmount>1</StyledAmount>
-        <IoBagOutline size={28} color="#000" />
+        <button>
+          <Link href="#">
+            <IoBagOutline size={28} color="#000" />
+          </Link>
+        </button>
       </div>
     </StyledHeader>
   );
