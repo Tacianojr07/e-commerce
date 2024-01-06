@@ -31,6 +31,6 @@ export const StyledAmount = styled.p`
   position: absolute;
   padding: 1px 6px;
   font-size: 13px;
-  right: 13.2%;
+  right: 12.7%;
   color: white;
 `;
