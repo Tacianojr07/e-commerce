@@ -14,7 +14,6 @@ export const StyledMain = styled.main`
     width: 100%;
     max-width: 375px;
     height: 300px;
-    object-fit: cover;
   }
 `;
 
@@ -26,7 +25,16 @@ export const StyledSection = styled.section`
 export const StyledItem = styled.div`
   width: 100%;
   margin-bottom: 1rem;
+  position: relative;
+
+  img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 `;
+
 export const StyledRight = styled.div`
   display: flex;
   align-items: center;
