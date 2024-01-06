@@ -1,20 +1,46 @@
+"use client";
 import Image from "next/image";
 import shoes1 from "../assets/pexels-aman-jakhar-2048548.jpg";
+import { StyledItem, StyledMain, StyledRight, StyledSection } from "./style";
 export default function Home() {
   return (
-    <main>
+    <StyledMain>
       <h1>Man</h1>
 
-      <section>
-        <div>
+      <StyledSection>
+        <StyledItem>
           <Image src={shoes1} alt="shoes man" />
-          <p>Shoes man</p>
-          <div>
-            $300,00
+          <p>Nike air force </p>
+          <StyledRight>
+            <p>$300,00</p>
             <button>add to cart</button>
-          </div>
-        </div>
-      </section>
-    </main>
+          </StyledRight>
+        </StyledItem>
+        <StyledItem>
+          <Image src={shoes1} alt="shoes man" />
+          <p>Nike air force </p>
+          <StyledRight>
+            <p>$300,00</p>
+            <button>add to cart</button>
+          </StyledRight>
+        </StyledItem>
+        <StyledItem>
+          <Image src={shoes1} alt="shoes man" />
+          <p>Nike air force </p>
+          <StyledRight>
+            <p>$300,00</p>
+            <button>add to cart</button>
+          </StyledRight>
+        </StyledItem>
+        <StyledItem>
+          <Image src={shoes1} alt="shoes man" />
+          <p>Nike air force </p>
+          <StyledRight>
+            <p>$300,00</p>
+            <button>add to cart</button>
+          </StyledRight>
+        </StyledItem>
+      </StyledSection>
+    </StyledMain>
   );
 }
