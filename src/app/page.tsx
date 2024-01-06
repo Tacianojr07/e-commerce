@@ -29,14 +29,23 @@ export default function Home() {
       <h1>Man</h1>
 
       <StyledSection>
-        <StyledItem>
-          <Image src={shoes1} alt="shoes man" />
-          <p>Nike air force </p>
-          <StyledRight>
-            <p>$300,00</p>
-            <button>add to cart</button>
-          </StyledRight>
-        </StyledItem>
+        {products.map((products) => (
+          <StyledItem key={products.id}>
+            <Image
+              src={products.cover}
+              width={100}
+              height={100}
+              quality={100}
+              alt="shoes man"
+              layout="responsive"
+            />
+            <p>{products.name} </p>
+            <StyledRight>
+              <p>${products.price}</p>
+              <button>add to cart</button>
+            </StyledRight>
+          </StyledItem>
+        ))}
       </StyledSection>
     </StyledMain>
   );
