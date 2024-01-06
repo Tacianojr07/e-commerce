@@ -5,7 +5,8 @@ export const StyledHeader = styled.header`
   max-width: 1920px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 1rem 8rem;
   height: 80px;
 `;
 
@@ -31,6 +32,6 @@ export const StyledAmount = styled.p`
   position: absolute;
   padding: 1px 6px;
   font-size: 13px;
-  right: 12.7%;
+  right: 7.8%;
   color: white;
 `;
