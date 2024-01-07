@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header";
+import ContextProvider from "@/context/CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +19,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-        </style>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+        />
       </head>
-      <body className={inter.className}>{children}</body>
+
+      <body className={inter.className}>
+        <ContextProvider>
+          <Header />
+          {children}
+        </ContextProvider>
+      </body>
     </html>
   );
 }
