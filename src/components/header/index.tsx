@@ -13,7 +13,7 @@ function Header() {
       <h1>VENDRE</h1>
       <nav>
         <StyledUl>
-          <Link href="#">Man</Link>
+          <Link href="/">Man</Link>
           <Link href="#">Woman</Link>
         </StyledUl>
       </nav>
@@ -21,7 +21,7 @@ function Header() {
       <div className="circle">
         {CartAmout > 0 && <StyledAmount>{CartAmout}</StyledAmount>}
         <button>
-          <Link href="#">
+          <Link href="/cart">
             <IoBagOutline size={28} color="#000" />
           </Link>
         </button>
