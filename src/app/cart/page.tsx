@@ -2,25 +2,36 @@
 import React from "react";
 import { StyledMain } from "./style";
 import Image from "next/image";
-import shoesman from "../../assets/pexels-aman-jakhar-2048548.jpg";
 import { StyledItemsCart } from "./style";
+import { useContext } from "react";
+import { Context } from "@/context/CartContext";
 
 function Cart() {
+  const { cart } = useContext(Context);
+
   return (
     <StyledMain>
       <h1>My cart</h1>
       <section>
-        <StyledItemsCart>
-          <Image src={shoesman} alt="shoes" />
-          <strong>price: R$1000</strong>
+        {cart.map((item) => (
+          <StyledItemsCart key={item.id}>
+            <Image
+              src={item.cover}
+              alt={item.name}
+              width={100}
+              height={100}
+              quality={100}
+              layout="responsive"
+            />
+            <strong>price: R${item.price}</strong>
 
-          <button>+</button>
-          <p>1</p>
-          <button>-</button>
+            <button>+</button>
+            <p>{item.amount}</p>
+            <button>-</button>
 
-          <strong>subtotal: R$1000000</strong>
-        </StyledItemsCart>
-        <p>total: R$40010</p>
+            <strong>subtotal: R${item.price}</strong>
+          </StyledItemsCart>
+        ))}
       </section>
     </StyledMain>
   );
