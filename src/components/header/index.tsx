@@ -3,8 +3,11 @@ import Link from "next/link";
 import React from "react";
 import { IoBagOutline } from "react-icons/io5";
 import { StyledAmount, StyledHeader, StyledUl } from "./style";
+import { useContext } from "react";
+import { Context } from "@/context/CartContext";
 
 function Header() {
+  const { CartAmout } = useContext(Context);
   return (
     <StyledHeader>
       <h1>VENDRE</h1>
@@ -16,7 +19,7 @@ function Header() {
       </nav>
 
       <div className="circle">
-        <StyledAmount>1</StyledAmount>
+        {CartAmout > 0 && <StyledAmount>1</StyledAmount>}
         <button>
           <Link href="#">
             <IoBagOutline size={28} color="#000" />
