@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { StyledMain } from "./style";
+import { StyledEmptyCart, StyledMain } from "./style";
 import Image from "next/image";
 import { StyledItemsCart } from "./style";
 import { useContext } from "react";
 import { Context } from "@/context/CartContext";
+import Link from "next/link";
 
 function Cart() {
   const { cart } = useContext(Context);
@@ -13,6 +14,13 @@ function Cart() {
     <StyledMain>
       <h1>My cart</h1>
       <section>
+        {cart.length === 0 && (
+          <StyledEmptyCart>
+            <p>seu carrinho está vazio</p>
+            <Link href="/">Volte para página de compras</Link>
+          </StyledEmptyCart>
+        )}
+
         {cart.map((item) => (
           <StyledItemsCart key={item.id}>
             <Image
@@ -29,7 +37,7 @@ function Cart() {
             <p>{item.amount}</p>
             <button>-</button>
 
-            <strong>subtotal: R${item.price}</strong>
+            <strong>subtotal: R${item.total}</strong>
           </StyledItemsCart>
         ))}
       </section>
