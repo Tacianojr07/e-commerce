@@ -11,6 +11,7 @@ interface IContextProps {
   CartAmout: number;
   addItemCart: (newItem: IProductsProps) => void;
   removeItemCart: (item: IProductsProps) => void;
+  total: string;
 }
 
 interface ICartProps {
@@ -27,6 +28,7 @@ export const Context = createContext({} as IContextProps);
 
 function ContextProvider({ children }: IContextProviderProps) {
   const [cart, setCart] = useState<ICartProps[]>([]);
+  const [total, setTotal] = useState("");
 
   function addItemCart(newItem: IProductsProps) {
     const indexItem = cart.findIndex((item) => item.id === newItem.id);
@@ -40,6 +42,8 @@ function ContextProvider({ children }: IContextProviderProps) {
         cartList[indexItem].amount * cartList[indexItem].price;
 
       setCart(cartList);
+      totalResultCart(cartList);
+
       return;
     }
 
@@ -52,6 +56,7 @@ function ContextProvider({ children }: IContextProviderProps) {
     };
 
     setCart((prevCart) => [...prevCart, data]);
+    totalResultCart([...cart, data]);
   }
 
   function removeItemCart(item: IProductsProps) {
@@ -66,16 +71,37 @@ function ContextProvider({ children }: IContextProviderProps) {
         cartList[indexItem].total - cartList[indexItem].price;
 
       setCart(cartList);
+      totalResultCart(cartList);
+
       return;
     }
 
     const removeItem = cart.filter((itemCart) => itemCart.id !== item.id);
     setCart(removeItem);
+    totalResultCart(removeItem);
+  }
+
+  function totalResultCart(items: IProductsProps[]) {
+    const myCart = items;
+    const result = myCart.reduce((acc, obj) => {
+      return acc + obj.total;
+    }, 0);
+    const resultFormated = result.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+    setTotal(resultFormated);
   }
 
   return (
     <Context.Provider
-      value={{ cart, CartAmout: cart.length, addItemCart, removeItemCart }}
+      value={{
+        cart,
+        CartAmout: cart.length,
+        addItemCart,
+        removeItemCart,
+        total,
+      }}
     >
       {children}
     </Context.Provider>
