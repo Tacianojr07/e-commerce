@@ -4,8 +4,10 @@ import shoes1 from "../assets/pexels-aman-jakhar-2048548.jpg";
 import { StyledItem, StyledMain, StyledRight, StyledSection } from "./style";
 import { useState, useEffect } from "react";
 import { api } from "@/services/api";
+import { useContext } from "react";
+import { Context } from "@/context/CartContext";
 
-interface IProductsProps {
+export interface IProductsProps {
   id: number;
   name: string;
   cover: string;
@@ -14,6 +16,8 @@ interface IProductsProps {
 }
 
 export default function Home() {
+  const { addItemCart } = useContext(Context);
+
   useEffect(() => {
     async function getProducuts() {
       const response = await api.get("/products");
@@ -24,6 +28,10 @@ export default function Home() {
   }, []);
 
   const [products, setProducts] = useState<IProductsProps[]>([]);
+
+  function handleAddItem(products: IProductsProps) {
+    addItemCart(products);
+  }
   return (
     <StyledMain>
       <h1>Man</h1>
@@ -42,7 +50,9 @@ export default function Home() {
             <p>{products.name} </p>
             <StyledRight>
               <p>${products.price}</p>
-              <button>add to cart</button>
+              <button onClick={() => handleAddItem(products)}>
+                add to cart
+              </button>
             </StyledRight>
           </StyledItem>
         ))}
