@@ -19,7 +19,7 @@ function Header() {
       </nav>
 
       <div className="circle">
-        {CartAmout > 0 && <StyledAmount>1</StyledAmount>}
+        {CartAmout > 0 && <StyledAmount>{CartAmout}</StyledAmount>}
         <button>
           <Link href="#">
             <IoBagOutline size={28} color="#000" />
