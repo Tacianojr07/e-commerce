@@ -10,6 +10,7 @@ interface IContextProps {
   cart: ICartProps[];
   CartAmout: number;
   addItemCart: (newItem: IProductsProps) => void;
+  removeItemCart: (item: IProductsProps) => void;
 }
 
 interface ICartProps {
@@ -53,8 +54,29 @@ function ContextProvider({ children }: IContextProviderProps) {
     setCart((prevCart) => [...prevCart, data]);
   }
 
+  function removeItemCart(item: IProductsProps) {
+    const indexItem = cart.findIndex((itemCart) => itemCart.id === item.id);
+
+    if (cart[indexItem].amount > 1) {
+      //irá remover 1
+      const cartList = cart;
+
+      cartList[indexItem].amount = cartList[indexItem].amount - 1;
+      cartList[indexItem].total =
+        cartList[indexItem].total - cartList[indexItem].price;
+
+      setCart(cartList);
+      return;
+    }
+
+    const removeItem = cart.filter((itemCart) => itemCart.id !== item.id);
+    setCart(removeItem);
+  }
+
   return (
-    <Context.Provider value={{ cart, CartAmout: cart.length, addItemCart }}>
+    <Context.Provider
+      value={{ cart, CartAmout: cart.length, addItemCart, removeItemCart }}
+    >
       {children}
     </Context.Provider>
   );
