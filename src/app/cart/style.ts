@@ -35,3 +35,23 @@ export const StyledItemsCart = styled.div`
   padding: 1rem;
   border-bottom: 2px solid #4545;
 `;
+
+export const StyledEmptyCart = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  p,
+  a {
+    text-decoration: none;
+    color: #000;
+    margin-left: 6rem;
+  }
+  a {
+    font-weight: 700;
+    background: #1212;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+  }
+`;
