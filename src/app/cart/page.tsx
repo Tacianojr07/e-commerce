@@ -8,7 +8,7 @@ import { Context } from "@/context/CartContext";
 import Link from "next/link";
 
 function Cart() {
-  const { cart } = useContext(Context);
+  const { cart, removeItemCart, addItemCart } = useContext(Context);
 
   return (
     <StyledMain>
@@ -33,9 +33,9 @@ function Cart() {
             />
             <strong>price: R${item.price}</strong>
 
-            <button>+</button>
+            <button onClick={() => addItemCart(item)}>+</button>
             <p>{item.amount}</p>
-            <button>-</button>
+            <button onClick={() => removeItemCart(item)}>-</button>
 
             <strong>subtotal: R${item.total}</strong>
           </StyledItemsCart>
