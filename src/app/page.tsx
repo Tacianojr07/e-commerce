@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { Context } from "@/context/CartContext";
 
 export interface IProductsProps {
+  total: number;
   id: number;
   name: string;
   cover: string;
