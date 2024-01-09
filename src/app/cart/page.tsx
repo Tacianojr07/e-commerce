@@ -16,8 +16,8 @@ function Cart() {
       <section>
         {cart.length === 0 && (
           <StyledEmptyCart>
-            <p>seu carrinho está vazio</p>
-            <Link href="/">Volte para página de compras</Link>
+            <p>Your shopping cart is empty</p>
+            <Link href="/">Return to shopping page</Link>
           </StyledEmptyCart>
         )}
 
