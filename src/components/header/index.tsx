@@ -14,7 +14,7 @@ function Header() {
       <nav>
         <StyledUl>
           <Link href="/">Man</Link>
-          <Link href="#">Woman</Link>
+          <Link href="/woman">Woman</Link>
         </StyledUl>
       </nav>
 
